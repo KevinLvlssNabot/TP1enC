@@ -49,7 +49,7 @@ int main(){
         attaqueMonstre = 4;
     }
     return 0;
-=======
+
 
 while (pvMonstre > 0 && pvGuts > 0) {
   printf("Guts attaque !\n");
