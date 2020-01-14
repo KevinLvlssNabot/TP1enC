@@ -51,7 +51,6 @@ int main(void){
         poisonMonstre = 1;
       }
 
-
       if (pvMonstre == 0){
         printf("Le monstre meurt\n");
         return 0;
@@ -80,9 +79,8 @@ int main(void){
         attaqueMonstre = 4;
         attaqueGuts = 5;
         pmGuts = pmGuts+1;
+
     }
 
     return 0;
 
-
-}
