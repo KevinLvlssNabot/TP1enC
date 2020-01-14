@@ -25,6 +25,9 @@ int main(void){
         printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison.\n");
       }
 
+
+    while (pvMonstre > 0 && pvGuts > 0) {
+      printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison.\n");
       scanf("%d", &attaqueOuDefense);
 
 
@@ -102,11 +105,13 @@ int main(void){
           pvMonstre = pvMonstre - 2;
           printf("Il reste %d PV au monstre !\n", pvMonstre);
         }
+
         if (poisonGuts == 1) {
           printf("Guts subit les degats du poison !\n");
           pvGuts = pvGuts-3;
           printf("Il reste %d PV a Guts.\n", pvGuts);
         }
+
         attaqueMonstre = 4;
         attaqueGuts = 5;
         pmGuts = pmGuts+1;
@@ -115,4 +120,3 @@ int main(void){
 
     return 0;
 
-}
