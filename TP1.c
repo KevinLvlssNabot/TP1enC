@@ -13,15 +13,34 @@ int main(void){
   int attaqueOuDefense;
   int pmGuts = 50;
   int poisonMonstre;
+  int pmMonstre = 50;
+  int poisonGuts;
+
+    while (pvMonstre > 0 && pvGuts > 0) {
+
+
+        if (poisonMonstre == 1) {
+        printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre.\n");
+      } else {
+        printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison.\n");
+      }
+
 
     while (pvMonstre > 0 && pvGuts > 0) {
       printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison.\n");
       scanf("%d", &attaqueOuDefense);
 
-      const int MAX = 1, MIN = 0;
+
+      int MAX = 2, MIN = 0;
       srand(time(NULL));
-      int attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;;
+      int attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
       // test rand  printf("%d\n", attaqueOuDefenseDuMonstre);
+
+      if (pmMonstre <= 0 || poisonGuts == 1) {
+        MAX = 1;
+        attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
+      }
+
       if ( attaqueOuDefenseDuMonstre == 1) {
         attaqueGuts = attaqueGuts/4;
       }
@@ -46,6 +65,7 @@ int main(void){
 
       if (attaqueOuDefense == 2) {
         printf("Guts utilise le sort poison !\n");
+        printf("Le monstre est empoisonne.\n");
         pmGuts = pmGuts-15;
         printf("Il reste %d PM a Guts\n", pmGuts);
         poisonMonstre = 1;
@@ -65,6 +85,15 @@ int main(void){
         printf("Il reste %d PV a Guts !\n", pvGuts);
       }
 
+      if (attaqueOuDefenseDuMonstre == 2 && pmMonstre > 0) {
+        printf("Le monstre utilise Poison\n");
+        printf("Guts est empoisonne !\n");
+        pmMonstre = pmMonstre-15;
+        poisonGuts = 1;
+        printf("Il reste %d PM au monstre.\n", pmMonstre);
+      } else if (pmMonstre <= 0) {
+        printf("Le monstre possede %d PM et ne peut pas utiliser Poison.\n", pmMonstre);
+      }
 
         if (pvGuts == 0) {
           printf("Guts decede.\n");
@@ -76,6 +105,13 @@ int main(void){
           pvMonstre = pvMonstre - 2;
           printf("Il reste %d PV au monstre !\n", pvMonstre);
         }
+
+        if (poisonGuts == 1) {
+          printf("Guts subit les degats du poison !\n");
+          pvGuts = pvGuts-3;
+          printf("Il reste %d PV a Guts.\n", pvGuts);
+        }
+
         attaqueMonstre = 4;
         attaqueGuts = 5;
         pmGuts = pmGuts+1;
