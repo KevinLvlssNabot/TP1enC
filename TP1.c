@@ -34,7 +34,7 @@ int main(void){
       }
       // Demander à l'utilisateur d'entrer la commande voulue.
       scanf("%d", &attaqueOuDefense);
-      
+
       //aléatoire du monstre
       int MAX = 2, MIN = 0;
       srand(time(NULL));
@@ -45,12 +45,12 @@ int main(void){
         MAX = 1;
         attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
       }
-      printf("%d\n", attaqueOuDefenseDuMonstre);
+
 
       if ( attaqueOuDefenseDuMonstre == 1) {
         attaqueGuts = attaqueGuts/4;
       }
-      printf("%d\n", attaqueOuDefenseDuMonstre);
+
 
       if (attaqueOuDefense == 0) {
         printf("Guts choisit d'attaquer\n");
@@ -67,12 +67,12 @@ int main(void){
               return 0;
             }
       }
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
       if (attaqueOuDefense == 1) {
         printf("Guts se defend et reduit les degats\n");
         attaqueMonstre = attaqueMonstre/4;
       }
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
       if (attaqueOuDefense == 2) {
 
           printf("Guts utilise le sort poison !\n");
@@ -82,7 +82,7 @@ printf("%d\n", attaqueOuDefenseDuMonstre);
           poisonMonstre = 1;
       }
 
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
       if (attaqueOuDefense == 3) {
         printf("Guts se soigne du poison.\n");
         poisonGuts = 0;
@@ -90,7 +90,7 @@ printf("%d\n", attaqueOuDefenseDuMonstre);
         printf("Il vous reste %d antidote.\n", nbreAntidote);
       }
 
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
 
       if (attaqueOuDefenseDuMonstre == 0) {
         printf("Le monstre attaque !\n");
@@ -103,7 +103,11 @@ printf("%d\n", attaqueOuDefenseDuMonstre);
                 return 0;
               }
       }
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
+      if ( attaqueOuDefenseDuMonstre == 1) {
+        printf("Le monstre se defend.");
+      }
+
       if (attaqueOuDefenseDuMonstre == 2) {
         if (pmMonstre > 0) {
           printf("Le monstre utilise Poison\n");
@@ -115,7 +119,7 @@ printf("%d\n", attaqueOuDefenseDuMonstre);
 
     }
 
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
         // Effet du poison
         if (poisonMonstre == 1) {
           printf("Le monstre subit des degats du poison.\n");
@@ -126,7 +130,7 @@ printf("%d\n", attaqueOuDefenseDuMonstre);
                   return 0;
                 }
         }
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
         if (poisonGuts == 1) {
           printf("Guts subit les degats du poison !\n");
           pvGuts = pvGuts-3;
@@ -136,7 +140,7 @@ printf("%d\n", attaqueOuDefenseDuMonstre);
                 return 0;
               }
         }
-printf("%d\n", attaqueOuDefenseDuMonstre);
+
         attaqueMonstre = 4;
         attaqueGuts = 5;
         if (pmGuts != 50) {
@@ -147,7 +151,7 @@ printf("%d\n", attaqueOuDefenseDuMonstre);
         printf("Guts : %dPV, %dPM, Monstre : %dPV, %dPM\n", pvGuts, pmGuts, pvMonstre, pmMonstre);
         printf("=========================================\n");
         printf("\n");
-        printf("%d\n", attaqueOuDefenseDuMonstre);
+
 }
     return 0;
 
