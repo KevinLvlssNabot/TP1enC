@@ -21,7 +21,12 @@ int main(void){
     while (pvMonstre != 0 || pvGuts != 0) {
 
       // Changement des consignes si le monstre est déjà empoisonné ou non.
-        if isateur d'entrer la commande voulue.
+        if (poisonMonstre == 1) {
+        printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 3 pour utiliser un antidote.\n");
+      } else {
+        printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison, 3 pour utiliser un antidote.\n");
+      }
+      // Demander à l'utilisateur d'entrer la commande voulue.
       scanf("%d", &attaqueOuDefense);
 
       //aléatoire du monstre
