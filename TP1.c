@@ -2,13 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct PersonnageDeSoutien{
-  char* nom;
-  int pv;
-  int pm;
-  int attaque;
-};
-typedef struct PersonnageDeSoutien personnageDeSoutien;
+// ajout 3 persos
+// capacités
+// combattre différents monstres
+// combattre plusieurs monstres en même temps
+// système d'xp
 
 int main(void){
 
@@ -16,11 +14,11 @@ int main(void){
   int pvMonstre = 50;
   int attaqueGuts = 5;
   int attaqueMonstre = 4;
-  int attaqueOuDefense;
+  int attaqueOuDefense; int attaqueOuDefenseCasca; int attaqueOuDefenseGriffith; int attaqueOuDefenseUvin;
   int pmGuts = 50;
   int poisonMonstre;
   int pmMonstre = 50;
-  int poisonGuts;
+  int poisonGuts; int poisonCasca; int poisonGriffith; int poisonUvin;
   int nbreAntidote =5;
 
 // Tant que personne n'a plus de PV faire :
@@ -34,6 +32,9 @@ int main(void){
       }
       // Demander à l'utilisateur d'entrer la commande voulue.
       scanf("%d", &attaqueOuDefense);
+      scanf("%d", &attaqueOuDefenseCasca);
+      scanf("%d", &attaqueOuDefenseGriffith);
+      scanf("%d", &attaqueOuDefenseUvin);
 
       //aléatoire du monstre
       int MAX = 2, MIN = 0;
@@ -91,6 +92,120 @@ int main(void){
       }
 
 
+      if (attaqueOuDefense == 0) {
+        printf("Guts choisit d'attaquer\n");
+        printf("Guts attaque !\n");
+        if ( attaqueOuDefenseDuMonstre == 1) {
+          printf("Le monstre se defend et reduit les degats !\n");
+        }
+        printf("Le monstre possede %d PV\n", pvMonstre);
+        printf("Le monstre subit %d degats\n", attaqueGuts);
+        pvMonstre = pvMonstre-attaqueGuts;
+        printf("Il reste %d PV au monstre !\n", pvMonstre);
+            if (pvMonstre <= 0){
+              printf("Le monstre meurt\n");
+              return 0;
+            }
+      }
+
+      if (attaqueOuDefense == 1) {
+        printf("Guts se defend et reduit les degats\n");
+        attaqueMonstre = attaqueMonstre/4;
+      }
+
+      if (attaqueOuDefense == 2) {
+
+          printf("Guts utilise le sort poison !\n");
+          printf("Le monstre est empoisonne.\n");
+          pmGuts = pmGuts-15;
+          printf("Il reste %d PM a Guts\n", pmGuts);
+          poisonMonstre = 1;
+      }
+
+
+      if (attaqueOuDefense == 3) {
+        printf("Guts se soigne du poison.\n");
+        poisonGuts = 0;
+        nbreAntidote = nbreAntidote-1;
+        printf("Il vous reste %d antidote.\n", nbreAntidote);
+      }
+
+      if (attaqueOuDefense == 0) {
+        printf("Guts choisit d'attaquer\n");
+        printf("Guts attaque !\n");
+        if ( attaqueOuDefenseDuMonstre == 1) {
+          printf("Le monstre se defend et reduit les degats !\n");
+        }
+        printf("Le monstre possede %d PV\n", pvMonstre);
+        printf("Le monstre subit %d degats\n", attaqueGuts);
+        pvMonstre = pvMonstre-attaqueGuts;
+        printf("Il reste %d PV au monstre !\n", pvMonstre);
+            if (pvMonstre <= 0){
+              printf("Le monstre meurt\n");
+              return 0;
+            }
+      }
+
+      if (attaqueOuDefense == 1) {
+        printf("Guts se defend et reduit les degats\n");
+        attaqueMonstre = attaqueMonstre/4;
+      }
+
+      if (attaqueOuDefense == 2) {
+
+          printf("Guts utilise le sort poison !\n");
+          printf("Le monstre est empoisonne.\n");
+          pmGuts = pmGuts-15;
+          printf("Il reste %d PM a Guts\n", pmGuts);
+          poisonMonstre = 1;
+      }
+
+
+      if (attaqueOuDefense == 3) {
+        printf("Guts se soigne du poison.\n");
+        poisonGuts = 0;
+        nbreAntidote = nbreAntidote-1;
+        printf("Il vous reste %d antidote.\n", nbreAntidote);
+      }
+
+
+      if (attaqueOuDefense == 0) {
+        printf("Guts choisit d'attaquer\n");
+        printf("Guts attaque !\n");
+        if ( attaqueOuDefenseDuMonstre == 1) {
+          printf("Le monstre se defend et reduit les degats !\n");
+        }
+        printf("Le monstre possede %d PV\n", pvMonstre);
+        printf("Le monstre subit %d degats\n", attaqueGuts);
+        pvMonstre = pvMonstre-attaqueGuts;
+        printf("Il reste %d PV au monstre !\n", pvMonstre);
+            if (pvMonstre <= 0){
+              printf("Le monstre meurt\n");
+              return 0;
+            }
+      }
+
+      if (attaqueOuDefense == 1) {
+        printf("Guts se defend et reduit les degats\n");
+        attaqueMonstre = attaqueMonstre/4;
+      }
+
+      if (attaqueOuDefense == 2) {
+
+          printf("Guts utilise le sort poison !\n");
+          printf("Le monstre est empoisonne.\n");
+          pmGuts = pmGuts-15;
+          printf("Il reste %d PM a Guts\n", pmGuts);
+          poisonMonstre = 1;
+      }
+
+
+      if (attaqueOuDefense == 3) {
+        printf("Guts se soigne du poison.\n");
+        poisonGuts = 0;
+        nbreAntidote = nbreAntidote-1;
+        printf("Il vous reste %d antidote.\n", nbreAntidote);
+      }
 
       if (attaqueOuDefenseDuMonstre == 0) {
         printf("Le monstre attaque !\n");
@@ -105,7 +220,7 @@ int main(void){
       }
 
       if ( attaqueOuDefenseDuMonstre == 1) {
-        printf("Le monstre se defend.");
+        printf("Le monstre se defend\n.");
       }
 
       if (attaqueOuDefenseDuMonstre == 2) {
