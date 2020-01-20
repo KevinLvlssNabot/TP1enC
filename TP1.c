@@ -34,7 +34,7 @@ int main(void){
       }
       // Demander à l'utilisateur d'entrer la commande voulue.
       scanf("%d", &attaqueOuDefense);
-      printf("%d\n", attaqueOuDefenseDuMonstre);
+      
       //aléatoire du monstre
       int MAX = 2, MIN = 0;
       srand(time(NULL));
