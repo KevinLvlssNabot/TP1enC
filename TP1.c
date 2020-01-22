@@ -336,11 +336,11 @@ int main(void){
         }
         printf(" \n");
         printf(" \n");
-        printf("%s : %dPV, %dPM", guts.nom, guts.pv, guts.pm);
-        printf("%s : %dPV, %dPM", casca.nom, casca.pv, casca.pm);
-        printf("%s : %dPV, %dPM", griffith.nom, griffith.pv, griffith.pm);
-        printf("%s : %dPV, %dPM", uvin.nom, uvin.pv, uvin.pm);
-        printf("Le monstre : %dPV, %dPM", pvMonstre, pmMonstre);
+        printf("%s : %dPV, %dPM ", guts.nom, guts.pv, guts.pm);
+        printf("%s : %dPV, %dPM ", casca.nom, casca.pv, casca.pm);
+        printf("%s : %dPV, %dPM ", griffith.nom, griffith.pv, griffith.pm);
+        printf("%s : %dPV, %dPM ", uvin.nom, uvin.pv, uvin.pm);
+        printf("Le monstre : %dPV, %dPM\n", pvMonstre, pmMonstre);
         printf("=========================================\n");
         printf("\n");
 
