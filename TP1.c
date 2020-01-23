@@ -20,36 +20,46 @@ typedef struct persos_t persos;
 
 int main(void){
 
-//  int pvGuts = 50;
   int pvMonstre = 50;
-//  int attaqueGuts = 5;
   int attaqueMonstre = 4;
-//  int attaqueOuDefense; int attaqueOuDefenseCasca; int attaqueOuDefenseGriffith; int attaqueOuDefenseUvin;
-//  int pmGuts = 50;
   int poisonMonstre;
   int pmMonstre = 50;
-//  int poisonGuts; int poisonCasca; int poisonGriffith; int poisonUvin;
   int nbreAntidote =5;
 
-  persos guts = {"Guts", 50, 5, 50, 0};
-  persos casca = {"Casca", 50, 5, 50, 0};
-  persos griffith = {"Griffith", 50, 5, 50, 0};
-  persos uvin = {"Uvin", 50, 5, 50, 0};
+  persos guts = {"Guts", 0, 5, 50, 0, 100};
+  persos casca = {"Casca", 0, 5, 50, 0, 100};
+  persos griffith = {"Griffith", 0, 5, 50, 0, 100};
+  persos uvin = {"Uvin", 1, 5, 50, 0, 100};
 
 // Tant que personne n'a plus de PV faire :
-    while (pvMonstre != 0 || guts.pv != 0) {
-
+    while (pvMonstre != 0 || (guts.pv && casca.pv && griffith.pv && uvin.pv !=0)) {
+printf("%d\n", guts.attaqueOuDefense);
       // Changement des consignes si le monstre est déjà empoisonné ou non.
         if (poisonMonstre == 1) {
         printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 3 pour utiliser un antidote.\n");
       } else {
         printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison, 3 pour utiliser un antidote.\n");
       }
+
+
       // Demander à l'utilisateur d'entrer la commande voulue.
-      scanf("%d", &guts.attaqueOuDefense);
-      scanf("%d", &casca.attaqueOuDefense);
-      scanf("%d", &griffith.attaqueOuDefense);
-      scanf("%d", &uvin.attaqueOuDefense);
+      if (guts.pv >0) {
+        printf("Que dois faire %s ?\n", guts.nom);
+        scanf("%d", &guts.attaqueOuDefense);
+      }
+      if (casca.pv >0) {
+        printf("Que dois faire %s ?\n", casca.nom);
+        scanf("%d", &casca.attaqueOuDefense);
+      }
+      if (griffith.pv >0) {
+        printf("Que dois faire %s ?\n", griffith.nom);
+        scanf("%d", &griffith.attaqueOuDefense);
+      }
+      if (uvin.pv >0) {
+        printf("Que dois faire %s ?\n", uvin.nom);
+        scanf("%d", &uvin.attaqueOuDefense);
+      }
+
 
       //aléatoire du monstre
       int MAX = 2, MIN = 0;
@@ -319,21 +329,27 @@ int main(void){
 
         attaqueMonstre = 4;
         guts.attaque = 5;
+        guts.attaqueOuDefense = 100;
         if (guts.pm != 50) {
           guts.pm = guts.pm+1;
         }
         casca.attaque = 5;
+        casca.attaqueOuDefense = 100;
         if (casca.pm != 50) {
           casca.pm = casca.pm+1;
         }
         griffith.attaque = 5;
+        griffith.attaqueOuDefense = 100;
         if (griffith.pm != 50) {
           griffith.pm = griffith.pm+1;
         }
         uvin.attaque = 5;
+        uvin.attaqueOuDefense = 100;
         if (uvin.pm != 50) {
           uvin.pm = uvin.pm+1;
         }
+
+
         printf(" \n");
         printf(" \n");
         printf("%s : %dPV, %dPM ", guts.nom, guts.pv, guts.pm);
