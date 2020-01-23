@@ -32,11 +32,9 @@ typedef struct monstres_t monstres;
 
 int main(void){
 
-  int pvMonstre = 50;
-  int attaqueMonstre = 4;
-  int poisonMonstre;
-  int pmMonstre = 50;
   int nbreAntidote =5;
+
+  int nbreEnnemis;
 
   persos guts = {"Guts", 50, 5, 50, 0, 100}; // 100 pour que le tour de jeu ne soit pas impacté par l'input du joueur.
   persos casca = {"Casca", 50, 5, 50, 0, 100};
@@ -44,6 +42,9 @@ int main(void){
   persos uvin = {"Uvin", 50, 5, 50, 0, 100};
 
   monstres monstres1;
+  monstres monstres2;
+  monstres monstres3;
+  monstres monstres4;
   monstres soldat = {"Soldat", 50, 4, 50, 50, 100};
   monstres1 = soldat;
 // Tant que personne n'a plus de PV faire :
