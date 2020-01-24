@@ -70,6 +70,9 @@ while (continuer == 0) {
   persos uvin = {"Uvin", 50, 5, 50, 0, 100};
 
   int choixMonstre;
+  int choixMonstre2;
+  int choixMonstre3;
+  int choixMonstre4;
   monstres monstres1;
   monstres monstres2;
   monstres monstres3;
@@ -87,31 +90,255 @@ while (continuer == 0) {
 
   int FinPartie = 0;
   int continuer = 0;
-
-
-  printf("Quel monstre souhaitez-vous affronter ?\n");
-  printf("0 pour le soldat // 1 pour l'abeille // 2 pour le flan // 3 pour le morbol // 4 pour la wyverne.\n");
-  scanf("%d", &choixMonstre);
-  while (choixMonstre < 0 || choixMonstre > 4) {
+//Choix du nombre d'ennemis
+  printf("Combien d'ennemis voulez-vous affronter ? (Entre 1 et 4 ennemis possibles.)\n");
+  scanf("%d", &nbreEnnemis);
+  while (nbreEnnemis < 1 || nbreEnnemis > 4) {
+    scanf("%d", &nbreEnnemis);
+  }
+    if (nbreEnnemis == 1) {
+      printf("Vous avez choisit d'affonter un seul ennemis. Auriez-vous peur ?\n");
+//Choix de l'ennemi si 1 seul choisit
+      printf("Quel monstre souhaitez-vous affronter ?\n");
+      printf("0 pour le soldat // 1 pour l'abeille // 2 pour le flan // 3 pour le morbol // 4 pour la wyverne.\n");
       scanf("%d", &choixMonstre);
-    }
-    if (choixMonstre == 0) {
-      printf("Preparez-vous a affronter le %s\n", soldat.nomMonstre);
-      monstres1 = soldat;
-    } else if (choixMonstre == 1) {
-      printf("Preparez-vous a affronter l'%s\n", abeille.nomMonstre);
-      monstres1 = abeille;
-    } else if (choixMonstre == 2) {
-      printf("Preparez-vous a affronter le %s\n", flan.nomMonstre);
-      monstres1 = flan;
-    } else if (choixMonstre == 3) {
-      printf("Preparez-vous a affronter le %s\n", morbol.nomMonstre);
-      monstres1 = morbol;
-    } else if (choixMonstre == 4) {
-      printf("Preparez-vous a affronter la %s\n", wyverne.nomMonstre);
-      monstres1 = wyverne;
-    }
-Sleep(1000);
+      while (choixMonstre < 0 || choixMonstre > 4) {
+          scanf("%d", &choixMonstre);
+        }
+        if (choixMonstre == 0) {
+          printf("Preparez-vous a affronter le %s\n", soldat.nomMonstre);
+          monstres1 = soldat;
+        } else if (choixMonstre == 1) {
+          printf("Preparez-vous a affronter l'%s\n", abeille.nomMonstre);
+          monstres1 = abeille;
+        } else if (choixMonstre == 2) {
+          printf("Preparez-vous a affronter le %s\n", flan.nomMonstre);
+          monstres1 = flan;
+        } else if (choixMonstre == 3) {
+          printf("Preparez-vous a affronter le %s\n", morbol.nomMonstre);
+          monstres1 = morbol;
+        } else if (choixMonstre == 4) {
+          printf("Preparez-vous a affronter la %s\n", wyverne.nomMonstre);
+          monstres1 = wyverne;
+        }
+
+        //Choix si 2 ennemis choisit
+
+    } else if (nbreEnnemis == 2) {
+      printf("Vous avez choisit d'affonter deux ennemis.\n");
+      printf("Quel monstres souhaitez-vous affronter ?\n");
+      printf("0 pour le soldat // 1 pour l'abeille // 2 pour le flan // 3 pour le morbol // 4 pour la wyverne.\n");
+      scanf("%d", &choixMonstre);
+      while (choixMonstre < 0 || choixMonstre > 4) {
+          scanf("%d", &choixMonstre);
+        }
+        if (choixMonstre == 0) {
+          printf("Preparez-vous a affronter le %s\n", soldat.nomMonstre);
+          monstres1 = soldat;
+        } else if (choixMonstre == 1) {
+          printf("Preparez-vous a affronter l'%s\n", abeille.nomMonstre);
+          monstres1 = abeille;
+        } else if (choixMonstre == 2) {
+          printf("Preparez-vous a affronter le %s\n", flan.nomMonstre);
+          monstres1 = flan;
+        } else if (choixMonstre == 3) {
+          printf("Preparez-vous a affronter le %s\n", morbol.nomMonstre);
+          monstres1 = morbol;
+        } else if (choixMonstre == 4) {
+          printf("Preparez-vous a affronter la %s\n", wyverne.nomMonstre);
+          monstres1 = wyverne;
+        }
+        printf("Choisissez le deuxieme monstre.\n");
+          while (choixMonstre2 < 0 || choixMonstre2 > 4) {
+              scanf("%d", &choixMonstre2);
+            }
+              if (choixMonstre2 == 0) {
+                printf("Preparez-vous aussi a affronter le %s\n", soldat.nomMonstre);
+                monstres2 = soldat;
+              } else if (choixMonstre2 == 1) {
+                printf("Preparez-vous aussi a affronter l'%s\n", abeille.nomMonstre);
+                monstres2 = abeille;
+              } else if (choixMonstre2 == 2) {
+                printf("Preparez-vous aussi a affronter le %s\n", flan.nomMonstre);
+                monstres2 = flan;
+              } else if (choixMonstre2 == 3) {
+                printf("Preparez-vous aussi a affronter le %s\n", morbol.nomMonstre);
+                monstres2 = morbol;
+              } else if (choixMonstre2 == 4) {
+                printf("Preparez-vous aussi a affronter la %s\n", wyverne.nomMonstre);
+                monstres2 = wyverne;
+              }
+
+              //Choix si ennemis x3
+
+    } else if (nbreEnnemis == 3) {
+      printf("Vous avez choisit d'affonter trois ennemis. Vous etes temeraires ?\n");
+      printf("Quel monstres souhaitez-vous affronter ?\n");
+      printf("0 pour le soldat // 1 pour l'abeille // 2 pour le flan // 3 pour le morbol // 4 pour la wyverne.\n");
+      scanf("%d", &choixMonstre);
+      while (choixMonstre < 0 || choixMonstre > 4) {
+          scanf("%d", &choixMonstre);
+        }
+        if (choixMonstre == 0) {
+          printf("Preparez-vous a affronter le %s\n", soldat.nomMonstre);
+          monstres1 = soldat;
+        } else if (choixMonstre == 1) {
+          printf("Preparez-vous a affronter l'%s\n", abeille.nomMonstre);
+          monstres1 = abeille;
+        } else if (choixMonstre == 2) {
+          printf("Preparez-vous a affronter le %s\n", flan.nomMonstre);
+          monstres1 = flan;
+        } else if (choixMonstre == 3) {
+          printf("Preparez-vous a affronter le %s\n", morbol.nomMonstre);
+          monstres1 = morbol;
+        } else if (choixMonstre == 4) {
+          printf("Preparez-vous a affronter la %s\n", wyverne.nomMonstre);
+          monstres1 = wyverne;
+        }
+          printf("Choisissez le deuxieme monstre.\n");
+            while (choixMonstre2 < 0 || choixMonstre2 > 4) {
+                scanf("%d", &choixMonstre2);
+              }
+                if (choixMonstre2 == 0) {
+                  printf("Preparez-vous aussi a affronter le %s\n", soldat.nomMonstre);
+                  monstres2 = soldat;
+                } else if (choixMonstre2 == 1) {
+                  printf("Preparez-vous aussi a affronter l'%s\n", abeille.nomMonstre);
+                  monstres2 = abeille;
+                } else if (choixMonstre2 == 2) {
+                  printf("Preparez-vous aussi a affronter le %s\n", flan.nomMonstre);
+                  monstres2 = flan;
+                } else if (choixMonstre2 == 3) {
+                  printf("Preparez-vous aussi a affronter le %s\n", morbol.nomMonstre);
+                  monstres2 = morbol;
+                } else if (choixMonstre2 == 4) {
+                  printf("Preparez-vous aussi a affronter la %s\n", wyverne.nomMonstre);
+                  monstres2 = wyverne;
+                }
+                  printf("Choisissez le troisieme monstre.\n");
+                  printf("%d\n", choixMonstre3);
+                    scanf("%d", &choixMonstre3);
+                    while (choixMonstre3 < 0 || choixMonstre3 > 4) {
+                        scanf("%d", &choixMonstre3);
+                      }
+                        if (choixMonstre3 == 0) {
+                          printf("Preparez-vous aussi a affronter le %s\n", soldat.nomMonstre);
+                          monstres3 = soldat;
+                        } else if (choixMonstre3 == 1) {
+                          printf("Preparez-vous aussi a affronter l'%s\n", abeille.nomMonstre);
+                          monstres3 = abeille;
+                        } else if (choixMonstre3 == 2) {
+                          printf("Preparez-vous aussi a affronter le %s\n", flan.nomMonstre);
+                          monstres3 = flan;
+                        } else if (choixMonstre3 == 3) {
+                          printf("Preparez-vous aussi a affronter le %s\n", morbol.nomMonstre);
+                          monstres3 = morbol;
+                        } else if (choixMonstre3 == 4) {
+                          printf("Preparez-vous aussi a affronter la %s\n", wyverne.nomMonstre);
+                          monstres3 = wyverne;
+                        }
+
+
+
+    } else if (nbreEnnemis == 4) {
+      printf("Vous avez choisit d'affonter quatre ennemis. Bon courage.\n");
+      printf("Quel monstres souhaitez-vous affronter ?\n");
+      printf("0 pour le soldat // 1 pour l'abeille // 2 pour le flan // 3 pour le morbol // 4 pour la wyverne.\n");
+      scanf("%d", &choixMonstre);
+      while (choixMonstre < 0 || choixMonstre > 4) {
+          scanf("%d", &choixMonstre);
+        }
+        if (choixMonstre == 0) {
+          printf("Preparez-vous a affronter le %s\n", soldat.nomMonstre);
+          monstres1 = soldat;
+        } else if (choixMonstre == 1) {
+          printf("Preparez-vous a affronter l'%s\n", abeille.nomMonstre);
+          monstres1 = abeille;
+        } else if (choixMonstre == 2) {
+          printf("Preparez-vous a affronter le %s\n", flan.nomMonstre);
+          monstres1 = flan;
+        } else if (choixMonstre == 3) {
+          printf("Preparez-vous a affronter le %s\n", morbol.nomMonstre);
+          monstres1 = morbol;
+        } else if (choixMonstre == 4) {
+          printf("Preparez-vous a affronter la %s\n", wyverne.nomMonstre);
+          monstres1 = wyverne;
+        }
+            printf("Choisissez le deuxieme monstre.\n");
+              while (choixMonstre2 < 0 || choixMonstre2 > 4) {
+                  scanf("%d", &choixMonstre2);
+                }
+                  if (choixMonstre2 == 0) {
+                    printf("Preparez-vous aussi a affronter le %s\n", soldat.nomMonstre);
+                    monstres2 = soldat;
+                  } else if (choixMonstre2 == 1) {
+                    printf("Preparez-vous aussi a affronter l'%s\n", abeille.nomMonstre);
+                    monstres2 = abeille;
+                  } else if (choixMonstre2 == 2) {
+                    printf("Preparez-vous aussi a affronter le %s\n", flan.nomMonstre);
+                    monstres2 = flan;
+                  } else if (choixMonstre2 == 3) {
+                    printf("Preparez-vous aussi a affronter le %s\n", morbol.nomMonstre);
+                    monstres2 = morbol;
+                  } else if (choixMonstre2 == 4) {
+                    printf("Preparez-vous aussi a affronter la %s\n", wyverne.nomMonstre);
+                    monstres2 = wyverne;
+                  }
+                    printf("Choisissez le troisieme monstre.\n");
+                    scanf("%d", &choixMonstre3);
+                      while (choixMonstre3 < 0 || choixMonstre3 > 4) {
+                          scanf("%d", &choixMonstre3);
+                        }
+                          if (choixMonstre3 == 0) {
+                            printf("Et votre troisieme adversaire sera le %s\n", soldat.nomMonstre);
+                            monstres3 = soldat;
+                          } else if (choixMonstre3 == 1) {
+                            printf("Et votre troisieme adversaire sera l'%s\n", abeille.nomMonstre);
+                            monstres3 = abeille;
+                          } else if (choixMonstre3 == 2) {
+                            printf("Et votre troisieme adversaire sera le %s\n", flan.nomMonstre);
+                            monstres3 = flan;
+                          } else if (choixMonstre3 == 3) {
+                            printf("Et votre troisieme adversaire sera le %s\n", morbol.nomMonstre);
+                            monstres3 = morbol;
+                          } else if (choixMonstre3 == 4) {
+                            printf("Et votre troisieme adversaire sera la %s\n", wyverne.nomMonstre);
+                            monstres3 = wyverne;
+                          }
+
+                              printf("Choisissez le dernier monstre.\n");
+                              scanf("%d", &choixMonstre4);
+                                while (choixMonstre4 < 0 || choixMonstre4 > 4) {
+                                    scanf("%d", &choixMonstre4);
+                                  }
+                                    if (choixMonstre4 == 0) {
+                                      printf("Et votre dernier adversaire sera le %s\n", soldat.nomMonstre);
+                                      monstres4 = soldat;
+                                    } else if (choixMonstre4 == 1) {
+                                      printf("Et votre dernier adversaire sera l'%s\n", abeille.nomMonstre);
+                                      monstres4 = abeille;
+                                    } else if (choixMonstre4 == 2) {
+                                      printf("Et votre dernier adversaire sera le %s\n", flan.nomMonstre);
+                                      monstres4 = flan;
+                                    } else if (choixMonstre4 == 3) {
+                                      printf("Et votre dernier adversaire sera le %s\n", morbol.nomMonstre);
+                                      monstres4 = morbol;
+                                    } else if (choixMonstre4 == 4) {
+                                      printf("Et votre dernier adversaire sera la %s\n", wyverne.nomMonstre);
+                                      monstres4 = wyverne;
+                                    }
+                          }
+
+
+
+
+
+
+
+
+
+
+Sleep(2000);
 system("cls");
 
 // Tant que personne n'a plus de PV faire :
