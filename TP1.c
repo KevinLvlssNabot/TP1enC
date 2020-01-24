@@ -239,28 +239,63 @@ int MIN;
 
 // Si monstre defend attaque/4
       if (monstres1.attaqueOuDefenseDuMonstre == 1) {
-        guts.attaque = guts.attaque/4;
-        casca.attaque = casca.attaque/4;
-        griffith.attaque = griffith.attaque/4;
-        uvin.attaque = uvin.attaque/4;
-      }
-        if (monstres2.attaqueOuDefenseDuMonstre == 1) {
+        if (guts.cible == 1) {
           guts.attaque = guts.attaque/4;
+        }
+        if (casca.cible == 1) {
           casca.attaque = casca.attaque/4;
+        }
+        if (griffith.cible == 1) {
           griffith.attaque = griffith.attaque/4;
+        }
+        if (uvin.cible == 1) {
           uvin.attaque = uvin.attaque/4;
         }
-          if (monstres3.attaqueOuDefenseDuMonstre == 1) {
+      }
+
+        if (monstres2.attaqueOuDefenseDuMonstre == 1) {
+          if (guts.cible == 2) {
             guts.attaque = guts.attaque/4;
+          }
+          if (casca.cible == 2) {
             casca.attaque = casca.attaque/4;
+          }
+          if (griffith.cible == 2) {
             griffith.attaque = griffith.attaque/4;
+          }
+          if (uvin.cible == 2) {
             uvin.attaque = uvin.attaque/4;
           }
-            if (monstres4.attaqueOuDefenseDuMonstre == 1) {
+        }
+
+          if (monstres3.attaqueOuDefenseDuMonstre == 1) {
+            if (guts.cible == 3) {
               guts.attaque = guts.attaque/4;
+            }
+            if (casca.cible == 3) {
               casca.attaque = casca.attaque/4;
+            }
+            if (griffith.cible == 3) {
               griffith.attaque = griffith.attaque/4;
+            }
+            if (uvin.cible == 3) {
               uvin.attaque = uvin.attaque/4;
+            }
+          }
+
+            if (monstres4.attaqueOuDefenseDuMonstre == 1) {
+              if (guts.cible == 4) {
+                guts.attaque = guts.attaque/4;
+              }
+              if (casca.cible == 4) {
+                casca.attaque = casca.attaque/4;
+              }
+              if (griffith.cible == 4) {
+                griffith.attaque = griffith.attaque/4;
+              }
+              if (uvin.cible == 4) {
+                uvin.attaque = uvin.attaque/4;
+              }
             }
 
       // Tour de Guts
