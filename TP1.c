@@ -21,6 +21,7 @@ struct persos_t {
   int pm;
   int poison;
   int attaqueOuDefense;
+  int cible;
 };
 
 typedef struct persos_t persos;
@@ -33,6 +34,8 @@ struct monstres_t {
   int poisonMonstre;
   int attaqueOuDefenseDuMonstre;
   int cibleAleatoireMonstre;
+  int mini;
+  int maxi;
 };
 
 typedef struct monstres_t monstres;
@@ -118,9 +121,13 @@ system("cls");
     while (FinPartie == 0) {
 Color(15,0);
       // Changement des consignes si le monstre est déjà empoisonné ou non.
-        if (monstres1.poisonMonstre == 1) {
+        if (monstres1.poisonMonstre == 1 && monstres2.poisonMonstre == 1 && monstres3.poisonMonstre == 1 && monstres4.poisonMonstre == 1) {
         printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 3 pour utiliser un antidote.\n");
-      } else {
+      } else if (monstres1.poisonMonstre == 1 && monstres2.poisonMonstre == 1 && monstres3.poisonMonstre == 1 && monstres4.poisonMonstre == 1 && (nbreAntidote == 0)) {
+        printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre.\n");
+      } else if (nbreAntidote == 0) {
+        printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison.\n");
+      }{
         printf("Choisissez d'attaquer ou de defendre, 0 pour attaquer, 1 pour defendre, 2 pour utiliser le sort Poison, 3 pour utiliser un antidote.\n");
       }
 
@@ -129,43 +136,107 @@ Color(15,0);
       if (guts.pv >0) {
         printf("Que dois faire %s ?\n", guts.nom);
         scanf("%d", &guts.attaqueOuDefense);
+          if (guts.attaqueOuDefense == 0 || guts.attaqueOuDefense == 2) {
+          printf("Choisissez la cible pour %s\n", guts.nom);
+          scanf("%d\n", guts.cible);
+        }
       }
       if (casca.pv >0) {
         printf("Que dois faire %s ?\n", casca.nom);
         scanf("%d", &casca.attaqueOuDefense);
+          if (casca.attaqueOuDefense == 0 || casca.attaqueOuDefense == 2) {
+            printf("Choisissez la cible pour %s\n", casca.nom);
+            scanf("%d\n", casca.cible);
+          }
       }
       if (griffith.pv >0) {
         printf("Que dois faire %s ?\n", griffith.nom);
         scanf("%d", &griffith.attaqueOuDefense);
+          if (griffith.attaqueOuDefense == 0 || griffith.attaqueOuDefense == 2) {
+            printf("Choisissez la cible pour %s\n", griffith.nom);
+            scanf("%d\n", griffith.cible);
+        }
       }
       if (uvin.pv >0) {
         printf("Que dois faire %s ?\n", uvin.nom);
         scanf("%d", &uvin.attaqueOuDefense);
+          if (uvin.attaqueOuDefense == 0 || uvin.attaqueOuDefense == 2) {
+            printf("Choisissez la cible pour %s\n", uvin.nom);
+            scanf("%d\n", uvin.cible);
+          }
       }
 
 int MAX;
 int MIN;
-      //aléatoire du monstre
+      //aléatoire du monstre1
       if (monstres1.pmMonstre >= 15) {
-        MAX = 2, MIN = 0;
+        monstres1.maxi = 2, monstres1.mini = 0;
         srand(time(NULL));
-          monstres1.attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
+          monstres1.attaqueOuDefenseDuMonstre = (rand() %(monstres1.maxi - monstres1.mini + 1)) + monstres1.mini;
       }
        // Si Guts est déja empoisonné ou si les PM du monstre sont inférieur à 15, le monstre ne peut plus utiliser poison.
       if ((guts.poison == 1 && casca.poison == 1 && griffith.poison == 1 && uvin.poison == 1) || (monstres1.pmMonstre < 15)) {
-        MAX = 1, MIN = 0;
+        monstres1.maxi = 1, monstres1.mini = 0;
             while (monstres1.attaqueOuDefenseDuMonstre == 2) {
               srand(time(NULL));
-              monstres1.attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
+              monstres1.attaqueOuDefenseDuMonstre = (rand() %(monstres1.maxi - monstres1.mini + 1)) + monstres1.mini;
           }
       }
+              //aléatoire du monstre2
+              if (monstres2.pmMonstre >= 15) {
+                monstres2.maxi = 2, monstres2.mini = 0;
+                srand(time(NULL));
+                  monstres2.attaqueOuDefenseDuMonstre = (rand() %(monstres2.maxi - monstres2.mini + 1)) + monstres2.mini
+              }
+               // Si Guts est déja empoisonné ou si les PM du monstre sont inférieur à 15, le monstre ne peut plus utiliser poison.
+              if ((guts.poison == 1 && casca.poison == 1 && griffith.poison == 1 && uvin.poison == 1) || (monstres2.pmMonstre < 15)) {
+                monstres2.maxi = 1, monstres2.mini = 0;
+                    while (monstres2.attaqueOuDefenseDuMonstre == 2) {
+                      srand(time(NULL));
+                      monstres2.attaqueOuDefenseDuMonstre = (rand() %(monstres2.maxi - monstres2.mini + 1)) + monstres2.mini;
+                  }
+              }
+                        //aléatoire du monstre3
+                        if (monstres3.pmMonstre >= 15) {
+                          monstres3.maxi = 2, monstres3.mini = 0;
+                          srand(time(NULL));
+                            monstres3.attaqueOuDefenseDuMonstre = (rand() %(monstres3.maxi - monstres3.mini + 1)) + monstres2.mini
+                        }
+                         // Si Guts est déja empoisonné ou si les PM du monstre sont inférieur à 15, le monstre ne peut plus utiliser poison.
+                        if ((guts.poison == 1 && casca.poison == 1 && griffith.poison == 1 && uvin.poison == 1) || (monstres3.pmMonstre < 15)) {
+                          monstres3.maxi = 1, monstres3.mini = 0;
+                              while (monstres3.attaqueOuDefenseDuMonstre == 2) {
+                                srand(time(NULL));
+                                monstres3.attaqueOuDefenseDuMonstre = (rand() %(monstres3.maxi - monstres3.mini + 1)) + monstres3.mini;
+                            }
+                        }
+                                    //aléatoire du monstre4
+                                    if (monstres4.pmMonstre >= 15) {
+                                      monstres4.maxi = 2, monstres4.mini = 0;
+                                      srand(time(NULL));
+                                        monstres4.attaqueOuDefenseDuMonstre = (rand() %(monstres4.maxi - monstres4.mini + 1)) + monstres4.mini
+                                    }
+                                     // Si Guts est déja empoisonné ou si les PM du monstre sont inférieur à 15, le monstre ne peut plus utiliser poison.
+                                    if ((guts.poison == 1 && casca.poison == 1 && griffith.poison == 1 && uvin.poison == 1) || (monstres4.pmMonstre < 15)) {
+                                      monstres4.maxi = 1, monstres4.mini = 0;
+                                          while (monstres4.attaqueOuDefenseDuMonstre == 2) {
+                                            srand(time(NULL));
+                                            monstres4.attaqueOuDefenseDuMonstre = (rand() %(monstres4.maxi - monstres4.mini + 1)) + monstres4.mini;
+                                        }
+                                    }
+
+
 
       // Cible aléatoire du/des monstres
       int MAX2 = 3, MIN2 = 0;
       srand(time(NULL));
       monstres1.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
+      monstres2.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
+      monstres3.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
+      monstres4.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
 
-printf("%d\n", monstres1.attaqueOuDefenseDuMonstre);
+
+
 // Si monstre defend attaque/4
       if (monstres1.attaqueOuDefenseDuMonstre == 1) {
         guts.attaque = guts.attaque/4;
@@ -173,6 +244,24 @@ printf("%d\n", monstres1.attaqueOuDefenseDuMonstre);
         griffith.attaque = griffith.attaque/4;
         uvin.attaque = uvin.attaque/4;
       }
+        if (monstres2.attaqueOuDefenseDuMonstre == 1) {
+          guts.attaque = guts.attaque/4;
+          casca.attaque = casca.attaque/4;
+          griffith.attaque = griffith.attaque/4;
+          uvin.attaque = uvin.attaque/4;
+        }
+          if (monstres3.attaqueOuDefenseDuMonstre == 1) {
+            guts.attaque = guts.attaque/4;
+            casca.attaque = casca.attaque/4;
+            griffith.attaque = griffith.attaque/4;
+            uvin.attaque = uvin.attaque/4;
+          }
+            if (monstres4.attaqueOuDefenseDuMonstre == 1) {
+              guts.attaque = guts.attaque/4;
+              casca.attaque = casca.attaque/4;
+              griffith.attaque = griffith.attaque/4;
+              uvin.attaque = uvin.attaque/4;
+            }
 
       // Tour de Guts
   Color(1,0);
