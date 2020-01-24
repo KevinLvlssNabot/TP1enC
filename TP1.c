@@ -80,10 +80,9 @@ while (continuer == 0) {
   monstres morbol = {"Morbol", 70, 3, 150, 100};
   monstres wyverne = {"Wyverne", 100, 10, 30, 100};
 
-  capacitesMonstres sappe ={"Sappe", 0, 0, 10};
+//  capacitesMonstres sappe ={"Sappe", 0, 0, 10};
 
   int FinPartie = 0;
-  int continuer = 0;
 
 
   printf("Quel monstre souhaitez-vous affronter ?\n");
@@ -528,22 +527,22 @@ Color(4,0);
 
 
     //    monstres1.attaqueMonstre = monstres1.attaqueMonstre;
-    //    guts.attaque = 5;
+        guts.attaque = 5;
     //    guts.attaqueOuDefense = 100;
         if (guts.pm != 50) {
           guts.pm = guts.pm+1;
         }
-    //    casca.attaque = 5;
+        casca.attaque = 5;
     //    casca.attaqueOuDefense = 100;
         if (casca.pm != 50) {
           casca.pm = casca.pm+1;
         }
-      //  griffith.attaque = 5;
+        griffith.attaque = 5;
     //    griffith.attaqueOuDefense = 100;
         if (griffith.pm != 50) {
           griffith.pm = griffith.pm+1;
         }
-  //      uvin.attaque = 5;
+        uvin.attaque = 5;
   //      uvin.attaqueOuDefense = 100;
         if (uvin.pm != 50) {
           uvin.pm = uvin.pm+1;
