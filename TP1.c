@@ -79,13 +79,10 @@ while (continuer == 0) {
   monstres flan = {"Flan", 40, 6, 100, 100};
   monstres morbol = {"Morbol", 70, 3, 150, 100};
   monstres wyverne = {"Wyverne", 100, 10, 30, 100};
-<<<<<<< HEAD
 
 //  capacitesMonstres sappe ={"Sappe", 0, 0, 10};
 
-  int FinPartie = 0;
-=======
->>>>>>> 21abe26e05d5f21464c90f1336293bbff7df41f4
+
 
 
   int FinPartie = 0;
@@ -534,38 +531,22 @@ Color(4,0);
 
 
     //    monstres1.attaqueMonstre = monstres1.attaqueMonstre;
-<<<<<<< HEAD
         guts.attaque = 5;
-=======
-    //    guts.attaque = 5;
->>>>>>> 21abe26e05d5f21464c90f1336293bbff7df41f4
     //    guts.attaqueOuDefense = 100;
         if (guts.pm != 50) {
           guts.pm = guts.pm+1;
         }
-<<<<<<< HEAD
         casca.attaque = 5;
-=======
-    //    casca.attaque = 5;
->>>>>>> 21abe26e05d5f21464c90f1336293bbff7df41f4
     //    casca.attaqueOuDefense = 100;
         if (casca.pm != 50) {
           casca.pm = casca.pm+1;
         }
-<<<<<<< HEAD
         griffith.attaque = 5;
-=======
-      //  griffith.attaque = 5;
->>>>>>> 21abe26e05d5f21464c90f1336293bbff7df41f4
     //    griffith.attaqueOuDefense = 100;
         if (griffith.pm != 50) {
           griffith.pm = griffith.pm+1;
         }
-<<<<<<< HEAD
         uvin.attaque = 5;
-=======
-  //      uvin.attaque = 5;
->>>>>>> 21abe26e05d5f21464c90f1336293bbff7df41f4
   //      uvin.attaqueOuDefense = 100;
         if (uvin.pm != 50) {
           uvin.pm = uvin.pm+1;
