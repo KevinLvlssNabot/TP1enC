@@ -57,6 +57,9 @@ void Color(int t,int f)
 
 int main(void){
 
+    int continuer = 0;
+while (continuer == 0) {
+
   int nbreAntidote =5;
 
   int nbreEnnemis;
@@ -73,13 +76,20 @@ int main(void){
   monstres monstres4;
   monstres soldat = {"Soldat", 50, 5, 50, 0, 100};
   monstres abeille = {"Abeille", 25, 8, 0, 100};
+  monstres flan = {"Flan", 40, 6, 100, 100};
+  monstres morbol = {"Morbol", 70, 3, 150, 100};
+  monstres wyverne = {"Wyverne", 100, 10, 30, 100};
 
   capacitesMonstres sappe ={"Sappe", 0, 0, 10};
 
+  int FinPartie = 0;
+  int continuer = 0;
+
+
   printf("Quel monstre souhaitez-vous affronter ?\n");
-  printf("0 pour le soldat // 1 pour l'abeille\n");
+  printf("0 pour le soldat // 1 pour l'abeille // 2 pour le flan // 3 pour le morbol // 4 pour la wyverne.\n");
   scanf("%d", &choixMonstre);
-  while (choixMonstre < 0 || choixMonstre > 1) {
+  while (choixMonstre < 0 || choixMonstre > 4) {
       scanf("%d", &choixMonstre);
     }
     if (choixMonstre == 0) {
@@ -88,10 +98,21 @@ int main(void){
     } else if (choixMonstre == 1) {
       printf("Preparez-vous a affronter l'%s\n", abeille.nomMonstre);
       monstres1 = abeille;
+    } else if (choixMonstre == 2) {
+      printf("Preparez-vous a affronter le %s\n", flan.nomMonstre);
+      monstres1 = flan;
+    } else if (choixMonstre == 3) {
+      printf("Preparez-vous a affronter le %s\n", morbol.nomMonstre);
+      monstres1 = morbol;
+    } else if (choixMonstre == 4) {
+      printf("Preparez-vous a affronter la %s\n", wyverne.nomMonstre);
+      monstres1 = wyverne;
     }
+Sleep(1000);
+system("cls");
 
 // Tant que personne n'a plus de PV faire :
-    while (monstres1.pvMonstre != 0 || (guts.pv && casca.pv && griffith.pv && uvin.pv !=0)) {
+    while (FinPartie == 0) {
 Color(15,0);
       // Changement des consignes si le monstre est déjà empoisonné ou non.
         if (monstres1.poisonMonstre == 1) {
@@ -119,17 +140,21 @@ Color(15,0);
         scanf("%d", &uvin.attaqueOuDefense);
       }
 
-
+int MAX;
+int MIN;
       //aléatoire du monstre
-      int MAX = 2, MIN = 0;
-      srand(time(NULL));
-        monstres1.attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
+      if (monstres1.pmMonstre >= 15) {
+        MAX = 2, MIN = 0;
+        srand(time(NULL));
+          monstres1.attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
+      }
        // Si Guts est déja empoisonné ou si les PM du monstre sont inférieur à 15, le monstre ne peut plus utiliser poison.
-      if ((guts.poison == 1 && casca.poison == 1 && griffith.poison == 1 && uvin.poison == 1) || monstres1.pmMonstre < 15) {
-        MAX = 1;
-          //  while (monstres1.attaqueOuDefenseDuMonstre == 2) {
-        //      monstres1.attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
-        //  }
+      if ((guts.poison == 1 && casca.poison == 1 && griffith.poison == 1 && uvin.poison == 1) || (monstres1.pmMonstre < 15)) {
+        MAX = 1, MIN = 0;
+            while (monstres1.attaqueOuDefenseDuMonstre == 2) {
+              srand(time(NULL));
+              monstres1.attaqueOuDefenseDuMonstre = (rand() %(MAX - MIN + 1)) + MIN;
+          }
       }
 
       // Cible aléatoire du/des monstres
@@ -137,7 +162,7 @@ Color(15,0);
       srand(time(NULL));
       monstres1.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
 
-
+printf("%d\n", monstres1.attaqueOuDefenseDuMonstre);
 // Si monstre defend attaque/4
       if (monstres1.attaqueOuDefenseDuMonstre == 1) {
         guts.attaque = guts.attaque/4;
@@ -159,7 +184,7 @@ Color(15,0);
         printf("Il reste %d PV au monstre !\n", monstres1.pvMonstre);
             if (monstres1.pvMonstre <= 0){
               printf("%s meurt\n", monstres1.nomMonstre);
-              return 0;
+              FinPartie = 1;
             }
      }
 
@@ -202,7 +227,7 @@ Color(2,0);
         printf("Il reste %d PV au %s !\n", monstres1.pvMonstre, monstres1.nomMonstre);
             if (monstres1.pvMonstre <= 0){
               printf("%s meurt\n", monstres1.nomMonstre);
-              return 0;
+              FinPartie = 1;
             }
       }
 
@@ -245,7 +270,7 @@ Color(3,0);
         printf("Il reste %d PV au %s !\n", monstres1.pvMonstre, monstres1.nomMonstre);
             if (monstres1.pvMonstre <= 0){
               printf("%s meurt\n", monstres1.nomMonstre);
-              return 0;
+              FinPartie = 1;
             }
       }
 
@@ -288,7 +313,7 @@ Color(4,0);
         printf("Il reste %d PV au %s !\n", monstres1.pvMonstre, monstres1.nomMonstre);
             if (monstres1.pvMonstre <= 0){
               printf("%s meurt\n", monstres1.nomMonstre);
-              return 0;
+              FinPartie = 1;
             }
       }
 
@@ -328,7 +353,6 @@ Color(5,0);
             printf("Il reste %d PV a Guts !\n", guts.pv);
                   if (guts.pv <= 0) {
                     printf("Guts decede.\n");
-                    return 0;
                   }
           } else if (monstres1.cibleAleatoireMonstre == 1) {
             printf("Casca subit %d degats\n", monstres1.attaqueMonstre);
@@ -336,7 +360,6 @@ Color(5,0);
             printf("Il reste %d PV a Casca !\n", casca.pv);
                   if (casca.pv <= 0) {
                     printf("Casca decede.\n");
-                    return 0;
                   }
           } else if (monstres1.cibleAleatoireMonstre == 2) {
             printf("Griffith subit %d degats\n", monstres1.attaqueMonstre);
@@ -344,7 +367,6 @@ Color(5,0);
             printf("Il reste %d PV a Griffith !\n", griffith.pv);
                   if (griffith.pv <= 0) {
                     printf("Griffith decede.\n");
-                    return 0;
                   }
           } else if (monstres1.cibleAleatoireMonstre == 3) {
             printf("Uvin subit %d degats\n", monstres1.attaqueMonstre);
@@ -352,7 +374,6 @@ Color(5,0);
             printf("Il reste %d PV a Uvin !\n", uvin.pv);
                   if (uvin.pv <= 0) {
                     printf("Uvin decede.\n");
-                    return 0;
                     }
           }
 
@@ -443,7 +464,8 @@ Color(5,0);
           printf("Il reste %d PV au %s !\n", monstres1.pvMonstre, monstres1.nomMonstre);
                 if (monstres1.pvMonstre <= 0){
                   printf("%s meurt\n", monstres1.nomMonstre);
-                  return 0;
+                  FinPartie = 1;
+
                 }
         }
 Color(1,0);
@@ -455,7 +477,8 @@ Color(1,0);
                 printf("Guts decede.\n");
                   if (casca.pv <= 0 && griffith.pv <= 0 && uvin.pv <= 0) {
                     printf("Votre equipe est decedee.\n");
-                    return 0;
+                    FinPartie = 1;
+
                   }
             }
       }
@@ -468,7 +491,8 @@ Color(2,0);
                 printf("Casca decede.\n");
                   if (guts.pv <= 0 && griffith.pv <= 0 && uvin.pv <= 0) {
                     printf("Votre equipe est decedee.\n");
-                    return 0;
+                    FinPartie = 1;
+
                   }
             }
       }
@@ -481,7 +505,8 @@ Color(3,0);
                 printf("Griffith decede.\n");
                   if (guts.pv <= 0 && casca.pv <= 0 && uvin.pv <= 0) {
                     printf("Votre equipe est decedee.\n");
-                    return 0;
+                    FinPartie = 1;
+
                   }
               }
         }
@@ -494,30 +519,32 @@ Color(4,0);
                 printf("Uvin decede.\n");
                   if (guts.pv <= 0 && griffith.pv <= 0 && casca.pv <= 0) {
                     printf("Votre equipe est decedee.\n");
-                    return 0;
+                    FinPartie = 1;
+
+
                   }
             }
       }
 
 
-        monstres1.attaqueMonstre = 4;
-        guts.attaque = 5;
-        guts.attaqueOuDefense = 100;
+    //    monstres1.attaqueMonstre = monstres1.attaqueMonstre;
+    //    guts.attaque = 5;
+    //    guts.attaqueOuDefense = 100;
         if (guts.pm != 50) {
           guts.pm = guts.pm+1;
         }
-        casca.attaque = 5;
-        casca.attaqueOuDefense = 100;
+    //    casca.attaque = 5;
+    //    casca.attaqueOuDefense = 100;
         if (casca.pm != 50) {
           casca.pm = casca.pm+1;
         }
-        griffith.attaque = 5;
-        griffith.attaqueOuDefense = 100;
+      //  griffith.attaque = 5;
+    //    griffith.attaqueOuDefense = 100;
         if (griffith.pm != 50) {
           griffith.pm = griffith.pm+1;
         }
-        uvin.attaque = 5;
-        uvin.attaqueOuDefense = 100;
+  //      uvin.attaque = 5;
+  //      uvin.attaqueOuDefense = 100;
         if (uvin.pm != 50) {
           uvin.pm = uvin.pm+1;
         }
@@ -528,14 +555,22 @@ Color(4,0);
 Color(15,0);
         printf(" \n");
         printf(" \n");
-        printf("%s : %dPV, %dPM", guts.nom, guts.pv, guts.pm); if (guts.poison == 1) { printf("      Empoisonne"); }  printf("                             %s : %dPV, %dPM\n", monstres1.nomMonstre, monstres1.pvMonstre, monstres1.pmMonstre);
-        printf("%s : %dPV, %dPM", casca.nom, casca.pv, casca.pm); if (casca.poison == 1) { printf("     Empoisonne\n"); } else { printf("\n"); }
-        printf("%s : %dPV, %dPM", griffith.nom, griffith.pv, griffith.pm); if (griffith.poison == 1) { printf("    Empoisonne\n"); } else { printf("\n"); }
-        printf("%s : %dPV, %dPM", uvin.nom, uvin.pv, uvin.pm); if (uvin.poison == 1) { printf("     Empoisonne\n"); } else { printf("\n"); }
+        printf("%s : %dPV, %dPM", guts.nom, guts.pv, guts.pm); if (guts.poison == 1) { printf("      Poison"); }  printf("                             %s : %dPV, %dPM", monstres1.nomMonstre, monstres1.pvMonstre, monstres1.pmMonstre); if (monstres1.poisonMonstre == 1) { printf("      Poison\n"); } else { printf("\n");}
+        printf("%s : %dPV, %dPM", casca.nom, casca.pv, casca.pm); if (casca.poison == 1) { printf("     Poison\n"); } else { printf("\n"); }
+        printf("%s : %dPV, %dPM", griffith.nom, griffith.pv, griffith.pm); if (griffith.poison == 1) { printf("    Poison\n"); } else { printf("\n"); }
+        printf("%s : %dPV, %dPM", uvin.nom, uvin.pv, uvin.pm); if (uvin.poison == 1) { printf("     Poison\n"); } else { printf("\n"); }
         printf("====================================================================================\n");
         printf("\n");
 
 }
-    return 0;
+    printf("Souhaitez-vous rejouer/continuer l'aventure. 0 pour continuer, 1 pour arreter\n");
+      scanf("%d", &continuer);
+        if (continuer == 1){
+          printf("Merci d'avoir jouer\n");
+            return 0;
+    }
 
+
+
+}
 }
