@@ -80,11 +80,11 @@ while (continuer == 0) {
   monstres monstres2;
   monstres monstres3;
   monstres monstres4;
-  monstres soldat = {"Soldat", 50, 5, 50, 0, 100};
-  monstres abeille = {"Abeille", 25, 8, 0, 100};
-  monstres flan = {"Flan", 40, 6, 100, 100};
-  monstres morbol = {"Morbol", 70, 3, 150, 100};
-  monstres wyverne = {"Wyverne", 100, 10, 30, 100};
+  monstres soldat = {"Soldat", 50, 5, 50, 0, 100, 100};
+  monstres abeille = {"Abeille", 25, 8, 0, 100, 100};
+  monstres flan = {"Flan", 40, 6, 100, 100, 100};
+  monstres morbol = {"Morbol", 70, 3, 150, 100, 100};
+  monstres wyverne = {"Wyverne", 100, 10, 30, 100, 100};
 
 //  capacitesMonstres sappe ={"Sappe", 0, 0, 10};
 
