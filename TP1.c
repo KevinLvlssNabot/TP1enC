@@ -608,7 +608,7 @@ int MIN;
                 if (monstres1.pvMonstre <= 0){
                   printf("%s meurt\n", monstres1.nomMonstre);
                 }
-        }
+        } else
 
           if (guts.cible == 2) {
             printf("Guts attaque %s!\n", monstres2.nomMonstre);
@@ -622,7 +622,7 @@ int MIN;
                 if (monstres2.pvMonstre <= 0){
                   printf("%s meurt\n", monstres2.nomMonstre);
                 }
-          }
+          } else
 
               if (guts.cible == 3) {
                 printf("Guts attaque %s!\n", monstres3.nomMonstre);
@@ -636,7 +636,7 @@ int MIN;
                     if (monstres3.pvMonstre <= 0){
                       printf("%s meurt\n", monstres3.nomMonstre);
                     }
-              }
+              } else
 
                   if (guts.cible == 4) {
                     printf("Guts attaque %s!\n", monstres4.nomMonstre);
