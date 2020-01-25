@@ -463,7 +463,7 @@ int MIN;
       }
     }
               //aléatoire du monstre2
-            if (monstres2.pvMonstre > 0){
+            if (nbreEnnemis > 1 && monstres2.pvMonstre > 0){
               if (monstres2.pmMonstre >= 15) {
                 monstres2.maxi = 2, monstres2.mini = 0;
                 srand(time(NULL));
@@ -479,7 +479,7 @@ int MIN;
               }
             }
                         //aléatoire du monstre3
-                      if (monstres3.pvMonstre > 0){
+                      if (nbreEnnemis > 2 && monstres3.pvMonstre > 0){
                         if (monstres3.pmMonstre >= 15) {
                           monstres3.maxi = 2, monstres3.mini = 0;
                           srand(time(NULL));
@@ -495,7 +495,7 @@ int MIN;
                         }
                       }
                                     //aléatoire du monstre4
-                                  if (monstres4.pvMonstre > 0){
+                                  if (nbreEnnemis == 4 && monstres4.pvMonstre > 0){
                                     if (monstres4.pmMonstre >= 15) {
                                       monstres4.maxi = 2, monstres4.mini = 0;
                                       srand(time(NULL));
@@ -519,13 +519,13 @@ int MIN;
     if (monstres1.pvMonstre > 0){
       monstres1.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
     }
-    if (monstres2.pvMonstre > 0){
+    if (nbreEnnemis > 1 && monstres2.pvMonstre > 0){
       monstres2.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
     }
-    if (monstres3.pvMonstre > 0){
+    if (nbreEnnemis > 2 && monstres3.pvMonstre > 0){
       monstres3.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
     }
-    if (monstres4.pvMonstre > 0){
+    if (nbreEnnemis > 3 && monstres4.pvMonstre > 0){
       monstres4.cibleAleatoireMonstre = (rand() %(MAX2 - MIN2 + 1)) + MIN2;
     }
 
