@@ -148,7 +148,7 @@ Color(15,0);
                     if (nbreEnnemis == 4) {
                       printf("Choisissez la cible pour %s, 1 pour %s, 2 pour %s, 3 pour %s, 4 pour %s.\n", guts.nom, monstres1.nomMonstre, monstres2.nomMonstre, monstres3.nomMonstre, monstres4.nomMonstre);
                       scanf("%d", &guts.cible);
-                    } else {
+                    } else if (nbreEnnemis == 1) {
                       guts.cible = 1;
                     }
         }
@@ -169,7 +169,7 @@ Color(15,0);
                     if (nbreEnnemis == 4) {
                       printf("Choisissez la cible pour %s, 1 pour %s, 2 pour %s, 3 pour %s, 4 pour %s.\n", casca.nom, monstres1.nomMonstre, monstres2.nomMonstre, monstres3.nomMonstre, monstres4.nomMonstre);
                       scanf("%d", &casca.cible);
-                    } else {
+                    } else if (nbreEnnemis == 1) {
                       casca.cible = 1;
                     }
           }
@@ -190,7 +190,7 @@ Color(15,0);
                     if (nbreEnnemis == 4) {
                       printf("Choisissez la cible pour %s, 1 pour %s, 2 pour %s, 3 pour %s, 4 pour %s.\n", griffith.nom, monstres1.nomMonstre, monstres2.nomMonstre, monstres3.nomMonstre, monstres4.nomMonstre);
                       scanf("%d", &griffith.cible);
-                    } else {
+                    } else if (nbreEnnemis == 1) {
                       griffith.cible = 1;
                     }
         }
@@ -211,7 +211,7 @@ Color(15,0);
                     if (nbreEnnemis == 4) {
                       printf("Choisissez la cible pour %s, 1 pour %s, 2 pour %s, 3 pour %s, 4 pour %s.\n", uvin.nom, monstres1.nomMonstre, monstres2.nomMonstre, monstres3.nomMonstre, monstres4.nomMonstre);
                       scanf("%d", &uvin.cible);
-                    } else {
+                    } else if (nbreEnnemis == 1) {
                       uvin.cible = 1;
                     }
           }
